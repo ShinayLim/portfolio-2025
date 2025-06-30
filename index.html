@@ -44,10 +44,26 @@
     <link href="assets/css/main.css" rel="stylesheet" />
 
     <style>
-      * {
-        cursor: url(https://cur.cursors-4u.net/cursors/cur-3/cur205.png), auto !important;}
-      
-    </style>
+  body {
+    cursor: none; /* Hide default cursor */
+  }
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(207, 164, 255, 0.7);
+    border: 2px solid #000;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+  }
+</style>
   </head>
 
   <body class="index-page">
@@ -69,6 +85,8 @@
         <h1 class="sitename">Shin I. Lim</h1>
       </a>
       <p class="position">Junior Front End Developer</p>
+
+      <div class="custom-cursor"></div>
 
       <div class="social-links text-center flex">
         
@@ -948,6 +966,14 @@
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script>
+  const cursor = document.querySelector('.custom-cursor');
+
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+  });
+</script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
